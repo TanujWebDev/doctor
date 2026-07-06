@@ -50,9 +50,9 @@ const MyAppointment = () => {
   }
 
   const initPay = (order) => {
-     
+    const razorpayKey = import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_test_dummy_key_id';
     const options = {
-      key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+      key: razorpayKey,
       amount: order.amount,
       currency: order.currency,
       name: 'Appointment Payment',
@@ -61,42 +61,41 @@ const MyAppointment = () => {
       receipt: order.receipt,
       handler: async(response) =>{
         console.log(response)
-
         try {
-
           const { data } = await axios.post(backendUrl + '/api/user/verifyRazorpay', response, {headers: {token}})
-
           if(data.success){
+            toast.success("Payment Successful!")
             getUserAppointments()
             navigate('/my-appointments')
+          } else {
+            toast.error(data.message)
           }
-          
         } catch (error) {
           console.log(error)
           toast.error(error.message)
         }
-
-
-
       }
     }
 
-    const rzp = new window.Razorpay(options)
-    rzp.open()
+    if (window.Razorpay) {
+      const rzp = new window.Razorpay(options)
+      rzp.open()
+    } else {
+      toast.error("Razorpay SDK failed to load. Please refresh the page.")
+    }
   }
 
   const appointmentRazorpay = async(appointmentId)=> {
-
     try {
-
       const { data } = await axios.post(backendUrl + '/api/user/payment-razorpay', {appointmentId}, {headers: {token}})
-
       if (data.success) {
-       initPay(data.order)
+        initPay(data.order)
+      } else {
+        toast.error(data.message)
       }
-      
     } catch (error) {
-      
+      console.log(error)
+      toast.error(error.message)
     }
   }
 
