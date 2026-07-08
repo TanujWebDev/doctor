@@ -51,35 +51,38 @@ const Login = () => {
       autoComplete="off"
       className="min-h-[80vh] flex items-center"
     >
-      <div className="flex flex-col gap-3 m-auto items-start p-8 min-w-[340px] sm:min-w-96 border rounded-xl text-[#5E5E5E] text-sm shadow-lg">
-        <p className="text-2xl font-semibold m-auto">
-          <span className="text-primary"> {state} </span> Login
+      <div className="flex flex-col gap-4 m-auto items-start p-8 min-w-[340px] sm:min-w-[400px] border border-gray-100 rounded-3xl text-gray-500 text-xs bg-white shadow-xl shadow-teal-500/5">
+        <p className="text-2xl font-bold text-gray-900 leading-tight m-auto">
+          <span className="text-teal-600 font-extrabold"> {state} </span> Login
         </p>
-        <div className="w-full">
-          <p>Email</p>
+        <p className="text-gray-400 font-medium -mt-2 m-auto">
+          Please enter your credentials to access the panel.
+        </p>
+        <div className="w-full mt-2">
+          <p className="font-semibold text-gray-700">Email</p>
           <input
             onChange={(e) => setEmail(e.target.value)}
             value={email}
-            className="border border-[#DADADA] rounded w-full p-2 mt-1"
+            className="border border-gray-200 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none rounded-xl w-full p-3 mt-1.5 transition-all text-sm bg-gray-50/50 focus:bg-white"
             type="email"
             autoComplete="off"
             required
           />
         </div>
         <div className="w-full">
-          <p>Password</p>
+          <p className="font-semibold text-gray-700">Password</p>
           <div className="relative">
             <input
               onChange={(e) => setPassword(e.target.value)}
               value={password}
-              className="border border-[#DADADA] rounded w-full p-2 pr-10 mt-1"
+              className="border border-gray-200 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none rounded-xl w-full p-3 pr-12 mt-1.5 transition-all text-sm bg-gray-50/50 focus:bg-white"
               type={showPassword ? "text" : "password"}
               autoComplete="new-password"
               required
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500 hover:text-gray-700 select-none"
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 cursor-pointer text-gray-400 hover:text-gray-600 select-none mt-0.5"
             >
               {showPassword ? (
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
@@ -94,24 +97,24 @@ const Login = () => {
             </span>
           </div>
         </div>
-        <button className="bg-primary text-white w-full py-2 rounded-md text-base">
+        <button className="bg-gradient-to-r from-teal-600 to-emerald-500 hover:from-teal-700 hover:to-emerald-600 text-white w-full py-3.5 rounded-xl text-sm font-semibold tracking-wide shadow-md shadow-teal-500/10 hover:shadow-lg active:scale-95 transition-all duration-200 mt-2">
           Login
         </button>
         {state === "Admin" ? (
-          <p>
+          <p className="text-gray-400 font-medium">
             Doctor Login?{" "}
             <span
-              className="text-primary underline cursor-pointer"
+              className="text-teal-600 font-bold hover:text-teal-700 hover:underline cursor-pointer transition-colors ml-1"
               onClick={() => setState("Doctor")}
             >
               Click here
             </span>
           </p>
         ) : (
-          <p>
+          <p className="text-gray-400 font-medium">
             Admin Login?{" "}
             <span
-              className="text-primary underline cursor-pointer"
+              className="text-teal-600 font-bold hover:text-teal-700 hover:underline cursor-pointer transition-colors ml-1"
               onClick={() => setState("Admin")}
             >
               Click here

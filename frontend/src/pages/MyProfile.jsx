@@ -77,7 +77,7 @@ const MyProfile = () => {
         <p className="text-neutral-500 underline mt-3">CONTACT INFORMATION</p>
         <div className="grid grid-cols-[1fr_3fr] gap-y-2.5 mt-3 text-neutral-700">
           <p className="font-medium">Email id:</p>
-          <p className="text-blue-500">{userData.email}</p>
+          <p className="text-teal-600">{userData.email}</p>
           <p className="font-medium">Phone:</p>
           {isEdit ? (
             <input className="bg-gray-100 max-w-52"
@@ -88,7 +88,7 @@ const MyProfile = () => {
               }
             />
           ) : (
-            <p className="text-blue-400 ">{userData.phone}</p>
+            <p className="text-teal-600">{userData.phone}</p>
           )}
           <p className="font-medium">Address:</p>
           {isEdit ? (
@@ -155,8 +155,8 @@ const MyProfile = () => {
       <div className="mt-10">
         {
           isEdit 
-          ? <button className="border border-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-all" onClick={updateUserProfileData}>Save information</button>
-          : <button className="border border-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-all" onClick={() => setIsEdit(true)}>Edit</button>
+          ? <button className="border border-teal-600 px-8 py-2.5 rounded-xl text-teal-600 hover:bg-teal-600 hover:text-white hover:border-transparent transition-all duration-300 font-bold text-xs tracking-wide shadow-sm hover:shadow active:scale-95" onClick={updateUserProfileData}>Save information</button>
+          : <button className="border border-teal-600 px-8 py-2.5 rounded-xl text-teal-600 hover:bg-teal-600 hover:text-white hover:border-transparent transition-all duration-300 font-bold text-xs tracking-wide shadow-sm hover:shadow active:scale-95" onClick={() => setIsEdit(true)}>Edit</button>
         }
       </div>
     </div>

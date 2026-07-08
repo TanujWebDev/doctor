@@ -17,7 +17,7 @@ const Contact = () => {
           <p className="font-semibold text-lg text-gray-600">OUR OFFICE</p>
           <p className="text-gray-500">Connaught Place, Block C, <br /> New Delhi, Delhi 110001, India</p>
           <p className="text-gray-500">Tel: +91 9350851332 <br /> Email: tanujwebdev@gmail.com</p>
-          <p className="font-semibold text-lg text-gray-600">Careers at CURADOC</p>
+          <p className="font-semibold text-lg text-gray-600">Careers at CURA<span className="text-teal-600">DOC</span></p>
           <p className="text-gray-500">Learn more about our healthcare technology teams and opening roles.</p>
           <button className="border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500">Explore Jobs</button>
         </div>

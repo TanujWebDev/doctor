@@ -49,7 +49,7 @@ const DoctorProfile = () => {
         <div className="flex flex-col gap-4 m-5">
           <div>
             <img
-              className="bg-primary/80 w-full sm:max-w-64 rounded-lg"
+              className="bg-teal-600/80 w-full sm:max-w-64 rounded-lg"
               src={profileData.image}
               alt=""
             />
@@ -136,27 +136,28 @@ const DoctorProfile = () => {
               </p>
             </div>
 
-            <div className="flex gap-1 pt-2">
+            <div className="flex gap-1.5 pt-2 items-center">
               <input onChange={() => isEdit && setProfileData(prev => ({...prev, available: !prev.available}))}
                 checked={profileData.available}
                 type="checkbox"
                 name=""
-                id=""
+                id="doc-available"
+                className="accent-teal-600 cursor-pointer"
               />
-              <label htmlFor="">Available</label>
+              <label htmlFor="doc-available" className="cursor-pointer font-medium text-gray-700">Available</label>
             </div>
 
             {
               isEdit
               ? <button
               onClick={ updateProfile }
-              className="px-4 py-1 border border-primary text-sm rounded-full mt-5 hover:bg-primary hover:text-white transition-all"
+              className="px-6 py-2 border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white font-bold text-xs rounded-xl mt-5 hover:border-transparent transition-all duration-300 active:scale-95 shadow-sm"
             >
               Save
             </button>
             : <button
               onClick={() => setIsEdit(true)}
-              className="px-4 py-1 border border-primary text-sm rounded-full mt-5 hover:bg-primary hover:text-white transition-all"
+              className="px-6 py-2 border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white font-bold text-xs rounded-xl mt-5 hover:border-transparent transition-all duration-300 active:scale-95 shadow-sm"
             >
               Edit
             </button>
